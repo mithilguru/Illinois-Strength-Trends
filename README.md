@@ -132,29 +132,29 @@ Visualizing the team progress in the target metrics for each test:
 
 **Isometric Test** - `Peak Force`, `Peak RFD`
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/JumpHeight.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RSI.png)
 
 Observing mean `Jump Height` and `RSI` over testing dates shows the athletes' performance generally peaked at the start of July, though RSI recovered to near-peak levels by the end of the month.
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/PeakForce.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RFD.png)
 
 For the Isometric Test, there is no default measure for rate of peak force development, so I've created a column that calculates this (`Peak RFD` = `Peak Force` / `Time to Peak Force`).
 Viewing mean `Peak Force` and `RFD`, both spike in mid-July and late July, but remain mostly constant throughout the duration of the training program.
 
 I'll be analyzing correlations to see if there are any strong linear relationships between feature types.
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/JumpHeight-Correlations.png)
 
 The strongest linear associations to `Jump Height` are measures relating to propulsion (i.e. `Takeoff Velocity`, Propulsive Impulse, Velocity, Power, `Jump Momentum`, `Spring Like Correlation`). 
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RSI-Correlations.png)
 
 For `RSI`, measures relating to force timings have the strongest linear associations (i.e. `Avg. Braking RFD`, `Time to Takeoff`, as well as `Stiffness`). `Contact Time` was not included since RSI is calculation of Jump Height over Contact Time.
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/PeakForce-Correlations.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RFD-Correlations.png)
 
 When viewing `Peak Force` and `RFD` correlations, checking for just strong linear relationships did not reveal much, so the range of top correlation was expanded. For both variables, maintaining strong force at the later stages of the lift (150-250ms) is a good predictor for overall peak force and RFD. Right force is also predictably higher than left force in predicting total force output (standard dominant side imbalances).
 
@@ -170,19 +170,30 @@ Fitting a linear model necessitates the data meets specific assumptions. The dia
 
 We start with `Jump Height`.
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/JumpHeight-LM.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/JumpHeight-LM-Features.png)
+
+Linear model.
+
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/JumpHeight-DT.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/JumpHeight-DT-Features.png)
+
+Decision tree model.
 
 I initially fitted a linear regression model with L1 regularization. This technique automatically scales the coefficients in the model to maximize the influence of relevant predictor variables. The model is predictably strong with an average RMSE of .43 (as the features are measures of the same movement), and `Peak Relative Propulsive Power` was the most relevant feature. When modeling for `Jump Height` with a decision tree, the model performed slightly worse than the linear model (.56 RMSE), and the strongest weighted feature was `Peak Velocity`, followed by measures of Propulsive Power.  
 
 Modeling `RSI` next.
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RSI-LM.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RSI-LM-Features.png)
+
+Linear model.
+
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RSI-DT.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RSI-DT-Features.png)
+
+Decision tree model.
 
 The regression model performed well (RMSE = .27), and the decision tree model performed similarly to the linear model (RMSE = .29), with the highest scoring feature being `Relative Force at Min Displacement`. 
 
@@ -190,28 +201,38 @@ When considering both models, measures of Force at Min Displacement are the stro
 
 Moving on to `Peak Force` in the Isometric Mid-Thigh Pull Test data.
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/PeakForce-LM.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/PeakForce-LM-Features.png)
+
+Linear model.
+
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/PeakForce-DT.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/PeakForce-DT-Features.png)
+
+Decision tree model.
 
 The linear model performs extremely well due to many variations of `Peak Force` existing in the dataset (RMSE = .03), while the decision tree model is less effective (RMSE = 97). The top predictor of peak force is `Force at 200 ms` when assessing both models.
 
 Repeating the process for the last target metric `Peak RFD`.
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RFD-LM.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RFD-LM-Features.png)
+
+Linear model.
+
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RFD-DT.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RFD-DT-Features.png)
+
+Decision tree model.
 
 The linear model with regularization (RMSE = 109) outperformed the decision tree model (RMSE = 221), but `Impulse 0-250ms` or `Net Impulse 0-250ms` was the most relevant feature across both models. 
 
 ## Results
 
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
-![alt text](https://github.com/mithilguru/Coursera-Customer-Churn-Prediction/blob/main/Visuals/Churn-Variable.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/JumpHeight-Variables.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RSI-Variables.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/PeakForce-Variables.png)
+![alt text](https://github.com/mithilguru/Illinois-Strength-Trends/blob/main/Visuals/RFD-Variables.png)
 
 Displayed above are the target metrics and influential factors of the Drop Jump and Isometric Mid-Thigh Pull tests visualized over testing period. As evidenced by the correlations, models, and trends over time, these are highly-related measures and are best used in conjunction to form a more complete picture of an athlete's training progress. A likely use-case would be considering these supplementary factors in addition to the standard target metrics when deciding on tapering athletes prior for meets / events.
 
