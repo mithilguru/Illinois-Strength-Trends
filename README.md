@@ -10,7 +10,7 @@ In this initial analysis, the emphasis is on identifying influential variables i
 
 ## EDA
 
-### DATA
+### Data
 
 **Drop Jump Measures and Variables** 
 
