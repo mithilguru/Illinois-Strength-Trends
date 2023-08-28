@@ -225,7 +225,7 @@ Linear model.
 
 Decision tree model.
 
-The linear model with regularization (RMSE = 109) outperformed the decision tree model (RMSE = 221), but `Impulse 0-250ms` or `Net Impulse 0-250ms` was the most relevant feature across both models. 
+The linear model with regularization (RMSE = 109) outperformed the decision tree model (RMSE = 221), but `Impulse 0-250ms` or `Net Impulse 0-250ms` was the most relevant feature across both models. In the next section, I'll be visualizing the trends of the relevant features alongside the original target metrics.
 
 ## Results
 
@@ -244,4 +244,4 @@ Analyzing the Illinois Men's Gymnastics Drop Jump and Isometric Mid-Thigh Pull t
 * For Drop Jumps, along with `Jump Height` and `RSI`, `Peak Relative Propulsive Force`, `Peak Velocity`, and `Relative Force at Min Displacement` offer vital context for assessing athlete performance
 * In the Isometric Mid-Thigh Pull, `Force at 200 ms` and `Net Impulse 0-250ms` complement `Peak Force` and `RFD`.
 
-A modeling limitation arises from the tightly interconnected variables collected by the force plates. This added challenge to understanding the relevance of individual measures, as models sought performance balance while retaining fundamental features (since the aim was feature evaluation). Modeling solely for precise target metric prediction (e.g., `Jump Height`, `RSI`, `Peak Force`, `Peak RFD`) neccisates a distinct approach focused on reducing the dimensionality of the dataset and collecting more data in frequent intervals to optimize model strength. Exploring this avenue would be an exciting approach for future analysis, particularly in evaluating training approaches for optimizing test performances.
+A modeling limitation arises from the tightly interconnected variables collected by the force plates. This added challenge to understanding the relevance of individual measures, as models sought performance balance while retaining fundamental features (since the aim was feature evaluation). Modeling solely for precise target metric prediction (e.g., `Jump Height`, `RSI`, `Peak Force`, `Peak RFD`) requires a distinct approach focused on reducing the dimensionality of the dataset and collecting more data in frequent intervals to optimize model strength. Exploring this avenue would be an exciting approach for future analysis, particularly in evaluating training approaches for optimizing test performances.
