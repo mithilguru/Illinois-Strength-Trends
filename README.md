@@ -166,7 +166,7 @@ Since the target variables are all numeric, the planned approach to modeling inv
 
 I'll be evaluating the model performance with **Root Mean Squared Error (RMSE)** as it effectively describes the average distance of actual points from model predictions (error) and it is a popular choice to evaluate regression models (the better the model, the lower the RMSE). To make a final assessment on relevant variables, I'll be observing the selected features for **Feature Importance** as it is a metric in scikit-learn that evaluates how much a feature contributes to the final prediction (better predictors have higher feature importance). 
 
-Fitting a linear model necessitates the data meets specific assumptions. The diagnostics for each model are viewable in the jupyter notebook, as I'll be reviewing the model results exclusively here. Also, to effectively evaluate the models, I'll be performing k-fold cross-validation and assessing the average RMSE of the folds. The random selection of examples in cross-validation ensures that the model predicitons are generizable and not just optimized to the current set of data.
+Fitting a linear model necessitates the data meets specific assumptions. The diagnostics for each model are viewable in the jupyter notebook, as I'll be reviewing the model results exclusively here. Also, to effectively evaluate the models, I'll be performing k-fold cross-validation and assessing the average RMSE of the folds. The random selection of examples in cross-validation ensures that the model predictions are generalizable and not just optimized to the current set of data.
 
 We start with `Jump Height`.
 
